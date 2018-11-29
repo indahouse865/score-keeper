@@ -1,5 +1,10 @@
-import {name} from './../imports/utils.js';
-import Add from './../imports/math.js';
+import {Meteor} from 'meteor/meteor';
+import {Players} from './../imports/api/players';
 
-console.log(Add(19, 10));
-console.log(name);
+Meteor.startup(() => {
+    Players.insert({
+        name: "Liz",
+        score: "209345"
+    });
+    console.log(Players.find().fetch());
+});
